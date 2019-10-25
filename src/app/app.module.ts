@@ -11,7 +11,8 @@ import { UserComponent } from './admin/user/user.component';
 import { ArticleComponent } from './admin/article/article.component';
 
 import { RouterModule } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent }, // front
       { path: 'login', component: LoginComponent },

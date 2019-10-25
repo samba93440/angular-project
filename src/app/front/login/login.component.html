@@ -1,1 +1,33 @@
 <app-navbar></app-navbar>
+<form
+  class="col-sm-6 offset-sm-3 my-3"
+  #formsConnexion="ngForm"
+  (submit)="onConnexion($event, formsConnexion)"
+>
+  <div class="form-group">
+    <label for="login">Login</label
+    ><input
+      class="form-control"
+      type="text"
+      id="login"
+      name="login"
+      ngModel
+      #login="ngModel"
+    />
+  </div>
+  <div class="form-group">
+    <label for="mdp">Mot de passe</label
+    ><input
+      class="form-control"
+      type="text"
+      id="mdp"
+      name="mdp"
+      ngModel
+      #mdp="ngModel"
+    />
+  </div>
+  <div class="form-group text-center">
+    <input class="btn btn-primary" type="submit" value="Connexion" />
+  </div>
+</form>
+<div class="text-center">{{ formsConnexion.value | json }}</div>
