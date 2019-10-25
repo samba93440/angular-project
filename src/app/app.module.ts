@@ -26,9 +26,9 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: HomeComponent }, // front
       { path: 'login', component: LoginComponent },
-      { path: 'admin/home', component: DashboardComponent },
+      { path: 'admin/home', component: DashboardComponent }, // back
       { path: 'admin/user', component: UserComponent },
       { path: 'admin/article', component: ArticleComponent },
       { path: '**', component: NotFoundComponent }
