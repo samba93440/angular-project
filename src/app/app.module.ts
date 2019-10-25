@@ -13,6 +13,8 @@ import { ArticleComponent } from './admin/article/article.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuardService } from './service/auth-guard.service';
+import { AuthService } from './service/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,13 +33,17 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot([
       { path: '', component: HomeComponent }, // front
       { path: 'login', component: LoginComponent },
-      { path: 'admin/home', component: DashboardComponent }, // back
+      {
+        path: 'admin/home',
+        component: DashboardComponent,
+        canActivate: [AuthService]
+      }, // back
       { path: 'admin/user', component: UserComponent },
       { path: 'admin/article', component: ArticleComponent },
       { path: '**', component: NotFoundComponent }
     ])
   ],
-  providers: [],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
